@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-// import { Navigate, Link } from 'react-router-dom';
-import axios from "axios";
+import React from "react";
+import { Link } from 'react-router-dom';
 
-function DogList({doglist}) {
-
+function DogList({ doglist }) {
+  console.log("doglist", doglist);
 
   return (
     <div>
-      {doglist.map((dog,idx) => (
-        <div key={idx}>
-          <h3>{dog.name}</h3>
-          <img src={`../public/${dog.src}.jpg`}></img>
-        </div>
+      {doglist.map((dog, idx) => (
+        <Link to={`/dogs/${dog.name}`}>
+          <div key={idx}>
+            <h3>{dog.name}</h3>
+            <img src={`/${dog.src}.jpg`}></img>
+          </div>
+        </Link>
       ))}
     </div>
   );
