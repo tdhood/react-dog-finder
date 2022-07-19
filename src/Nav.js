@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-/** Show links for each dog in the doglist
+/** Show links for each dog in the doglist as NavBar
  *
  *  Props:
  *  - doglist
+ * 
+ * App -> Nav
  */
 
 function Nav({ doglist }) {
@@ -12,7 +14,7 @@ function Nav({ doglist }) {
   return (
     <nav>
       {doglist.map((dog) => (
-        <Link to={`/dogs/${dog.name}`}>{dog.name}</Link>
+        <Link key={dog.name} to={`/dogs/${dog.name}`}>{dog.name}</Link>
       ))}
     </nav>
   );

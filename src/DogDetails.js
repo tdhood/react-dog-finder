@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
  *
  *  Props:
  *  - doglist
+ * 
+ * App -> Routelist -> DogDetails
  */
 
 function DogDetails({ doglist }) {
@@ -19,7 +21,7 @@ function DogDetails({ doglist }) {
       <h1>{dog[0].name}</h1>
       <h3>{dog[0].name} is {dog[0].age} years old</h3>
       <img src={`/${dog[0].src}.jpg`}></img>
-      {dog[0].facts.map((fact) => (<div> {fact} </div>
+      {dog[0].facts.map((fact,idx) => (<div key={idx}> {fact} </div>
       ))}
     </div>
   );

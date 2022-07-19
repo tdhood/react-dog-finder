@@ -3,13 +3,17 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import DogList from "./DogList";
 import DogDetails from "./DogDetails";
 
+/** Creates all routes for pet app
+ * 
+ * Returns user to root route if wrong path
+ */
 
-function RoutesList({data}) {
+function RoutesList({doglist}) {
   return (
     <Routes>
-      <Route element={<DogList doglist={data}/>} path="/" />
-      <Route element= { <DogDetails doglist={data}/>} path="/dogs/:name" />
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route element={<DogList doglist={doglist}/>} path="/dogs" />
+      <Route element= { <DogDetails doglist={doglist}/>} path="/dogs/:name" />
+      <Route path="*" element={<Navigate to="/dogs" />} />
     </Routes>
   );
 }
